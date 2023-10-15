@@ -12,9 +12,10 @@ import static me.kire.re.studentcontroller.util.Constants.STUDENT_ENDPOINT;
 public class StudentRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> router(StudentHandler studentHandler) {
+    public RouterFunction<ServerResponse> router(StudentHandler handler) {
         return RouterFunctions.route()
-                .POST(STUDENT_ENDPOINT, studentHandler::create)
+                .GET(STUDENT_ENDPOINT, handler::findAll)
+                .POST(STUDENT_ENDPOINT, handler::create)
                 .build();
     }
 

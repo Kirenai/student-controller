@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @ToString
+@Builder
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Student {
 
     @Id
-    private String studentId;
+    private String id;
     private String name;
 
 }
