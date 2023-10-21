@@ -1,11 +1,12 @@
 package me.kire.re.studentcontroller.registration;
 
 import lombok.Builder;
+import me.kire.re.studentcontroller.util.RegistrationType;
 
 @Builder
 public record RegistrationResponse(
         String id,
-        String type,
+        RegistrationType type,
         String studentId
 ) {
 }

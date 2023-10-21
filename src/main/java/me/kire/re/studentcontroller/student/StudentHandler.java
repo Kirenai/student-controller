@@ -1,6 +1,7 @@
 package me.kire.re.studentcontroller.student;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -26,7 +27,10 @@ public class StudentHandler {
         return request.bodyToMono(StudentRequest.class)
                 .map(this.studentMapper::mapIn)
                 .flatMap(this.studentRepository::save)
-                .flatMap(student -> ServerResponse.ok().contentType(APPLICATION_JSON).bodyValue(student));
+                .flatMap(student -> ServerResponse.status(HttpStatus.CREATED)
+                        .contentType(APPLICATION_JSON)
+                        .bodyValue(student)
+                );
     }
 
 }
