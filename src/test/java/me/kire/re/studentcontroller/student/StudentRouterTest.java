@@ -52,7 +52,7 @@ class StudentRouterTest {
         this.client
                 .post()
                 .uri(STUDENT_ENDPOINT)
-                .body(Mono.just(new StudentRequest("1222222222", "Lucas")), StudentRequest.class)
+                .body(Mono.just(new StudentRequest("Lucas")), StudentRequest.class)
                 .exchange()
                 .expectStatus()
                 .isCreated();
